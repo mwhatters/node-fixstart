@@ -10,6 +10,7 @@ issueClient.subscribe('issue-created')
 fixClient.subscribe('fix-created')
 localStreamClient.subscribe('stream')
 
+
 io.on('connection', function(socket) {
 });
 
@@ -31,3 +32,12 @@ localStreamClient.on('message', function(channel, data){
 	console.log(data)
 	io.sockets.emit('stream', JSON.parse(data))
 })
+
+
+
+// heroku
+// var redisURL = url.parse(process.env.REDISCLOUD_URL);
+// var commentClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
+// var roomClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
+// commentClient.auth(redisURL.auth.split(":")[1]);
+// roomClient.auth(redisURL.auth.split(":")[1]);
