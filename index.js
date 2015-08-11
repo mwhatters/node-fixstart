@@ -5,7 +5,7 @@ var redis = require('redis');
 
 
 // HEROKU SETUP
-if (process.env.REDISCLOUD_URL) {
+if (process.env.REDISCLOUD_URL == 'redis://rediscloud:PaGQAkYIlZpCqyW3@pub-redis-17728.us-east-1-3.6.ec2.redislabs.com:17728') {
     var redisURL = url.parse(process.env.REDISCLOUD_URL);
     var issueClient = redis.createClient(redisURL.port, redisURL.hostname, {
         no_ready_check: true
